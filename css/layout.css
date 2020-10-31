@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#hero{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/bkd1.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition : background-image .8s ease-in-out;
+}
+.navbar{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+}
+.navbar .logo{
+  width: 60px;
+  margin: 30px 0;
+  cursor: pointer;
+}
+.user{
+  display: flex;
+  align-items: center;
+}
+.user img{
+  width: 30px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+button{
+  padding: 8px 25px;
+  background: transparent;
+  ouiline: none;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.container{
+  width : 50%;
+  height : 100vh;
+  background : rgba(0,0,0,.3);
+  -webkit-background-filter : blur(10px);
+  background-filter : blur(10px);
+  position : absolute;
+  left : 0;
+  top : 0;
+}
+.info{
+  width : 550px;
+  color : white;
+  position : absolute;
+  right : 0;
+  top : 50%;
+  transform : translate(-50%, -50%);
+}
+.info h1{
+  font-size : 60px;
+  letter-spacing : 10px;
+}
+.info p{
+  color : #f0eef1;
+  font-size : 11px;
+  margin : 20px 0;
+  line-height : 18px;
+}
+.info input{
+  width : 50%;
+  padding : 8px 10px;
+  outline : none;
+  border : 2px solid #fff;
+  border-radius : 20px;
+  color : white;
+  background : transparent;
+  font-size : 12px;
+}
+
+::placeholder{color : #ccc;}
+
+.slider{
+  display : flex;
+  align-items : center;
+  position : absolute;
+  right: 30px;
+  bottom: 50px;
+}
+#prev,
+#next{
+  width: 20px;
+  cursor : pointer;
+}
+.preview{
+  display: flex;
+  align-items : center;
+  margin : 0 60px;
+}
+.preview .thumbnail{
+  width : 100px;
+  margin : 0 10px;
+  opacity : .4;
+  cursor : pointer;
+}
+.preview .thumbnail.active{
+  display: block;
+  border : 3px solid white;
+  width : 140px;
+  opacity : 1;
+  transition: opacity .8s ease-in-out;
+}

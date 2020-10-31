@@ -1,106 +1,102 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta charset="utf-8">
-<title>11월 창업 혜택</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/layout.css">
+  <title>gallery_slide2</title>
+  <!-- <script src="js/main.js"></script> -->
 </head>
-
 <body>
+  <div id="hero">
 
+    <div class="navbar">
+      <img src="img/logo.png" alt="#logo" class="logo">
+      <div class="user">
+        <button type="button">Explore</button>
+        <img src="img/user.png" alt="#userimg" class="user">
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="info">
+        <h1>DISCOVER</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <input type="text" placeholder="Search">
+      </div>
+    </div> <!-- container -->
 
-<style>
+    <div class="slider">
+      <img src="img/left.png" alt="#left" id="prev">
+      <div class="preview">
+        <img src="img/bkd1.jpg" alt="#small" data-btn="1" class="thumbnail active">
+        <img src="img/bkd2.jpg" alt="#small" data-btn="2" class="thumbnail">
+        <img src="img/bkd3.jpg" alt="#small" data-btn="3" class="thumbnail">
+        <img src="img/bkd4.jpg" alt="#small" data-btn="4" class="thumbnail">
+        <img src="img/bkd5.jpg" alt="#small" data-btn="5" class="thumbnail">
+      </div>
+      <img src="img/right.png" alt="#right" id="next">
+    </div>
+  </div> <!--  hero -->
 
-/*초기화코드*/
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+  <script>
+    var prev = document.getElementById('prev'),
+    next = document.getElementById('next'),
+    thumbNail = document.getElementsByClassName('thumbnail'),
+    hero = document.getElementById('hero');
 
-*{
-	padding:0;
-	margin:0;
-	list-style:none;
-	text-decoration:none;
-} /* 전체 초기화 */
+    var bgurl = "img/bkd",
+    bgex = ".jpg";
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {display: block;}
-ol, ul {list-style: none;}
-blockquote, q {quotes: none;}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+    var pagerNum = 0;
+    console.log(pagerNum);
 
-/* map태그 테두리 none */
-area:focus{
-  border: none;
-  outline:none;
-  outline-style: none;
-  -moz-outline-style:none;
-}
-img,
-img a{
-	outline: none !important;
-	border: none !important;
-}
+    function bg_play(){
+      hero.style.backgroundImage = 'url("'+bgurl+''+[pagerNum+1]+''+bgex+'")';
+      for(var y= 0; y < thumbNail.length; y++){
+        thumbNail[y].classList.remove('active');
+      }
+      thumbNail[pagerNum].classList.add('active');
+    }
+    // 다음 버튼
+    next.onclick = function(){
+      if(pagerNum < thumbNail.length-1){
+        pagerNum++;
+        bg_play()
+      }else{
+        pagerNum = 0;
+        hero.style.backgroundImage = 'url("'+bgurl+''+1+''+bgex+'")';
+        for(y= 0; y < thumbNail.length; y++){
+          thumbNail[y].classList.remove('active');
+        }
+        thumbNail[0].classList.add('active');
+      }
+    }
+    // 이전 버튼
+    prev.onclick = function(){
+      if(pagerNum > 0){
+        pagerNum--;
+        bg_play()
+      }else{
+        pagerNum = thumbNail.length-1;
+        bg_play()
+      }
+    }
+    // 갤러리 버튼
+    for(var x = 0; x < thumbNail.length; x++){
+	  	thumbNail[x].addEventListener('click', function(){
+	  	var pagerSrc = event.target.getAttribute('src');
+      pagerNum = event.target.getAttribute('data-btn')-1;
+      for(y= 0; y < thumbNail.length; y++){
+        thumbNail[y].classList.remove('active');
+      }
+      console.log(pagerNum);
+      event.target.classList.add('active');
+      hero.style.backgroundImage = 'url("'+pagerSrc+'")';
+	   	});
+    }
 
-
-body{
-	width: 100%;
-	z-index: -3;
-	background-color: transparent;
-}
-
-.content{
-	width: 100%;
-	height: auto;
-	overflow: hidden;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 0;
-	position: relative;
-}
-.content img{
-	width: 100%;
-	height: auto;
-}
-.content a{
-	position: absolute;
-	bottom: 1%;
-	right: 0;
-	left: 0;
-	margin: 0 auto;
-	width: 46%;
-	height: 5.5%;
-}
-
-</style>
-	<div class="content">
-		<img src="newimg/benefit/img.jpg" alt="#img" width="1920" height="4069">
-		<a class="cont_btn_box" href="http://www.hunterpc.co.kr/hunter2/bbs/write.php?bo_table=qa&device=pc"></a>
-	</div>
+  </script>
 </body>
 </html>
