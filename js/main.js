@@ -16,25 +16,32 @@ function bg_play(){
   }
   thumbNail[pagerNum].classList.add('active');
 }
+function bg_reset(){
+  pagerNum = 0;
+  hero.style.backgroundImage = 'url("'+bgurl+''+1+''+bgex+'")';
+  for(y= 0; y < thumbNail.length; y++){
+    thumbNail[y].classList.remove('active');
+  }
+  thumbNail[0].classList.add('active');
+}
 // 다음 버튼
 next.onclick = function(){
   if(pagerNum < thumbNail.length-1){
     pagerNum++;
+    autoTimer = pagerNum;
     bg_play()
+    console.log(pagerNum);
   }else{
-    pagerNum = 0;
-    hero.style.backgroundImage = 'url("'+bgurl+''+1+''+bgex+'")';
-    for(y= 0; y < thumbNail.length; y++){
-      thumbNail[y].classList.remove('active');
-    }
-    thumbNail[0].classList.add('active');
+    bg_reset()
   }
 }
 // 이전 버튼
 prev.onclick = function(){
   if(pagerNum > 0){
     pagerNum--;
+    autoTimer = pagerNum;
     bg_play()
+    console.log(pagerNum);
   }else{
     pagerNum = thumbNail.length-1;
     bg_play()
@@ -50,12 +57,7 @@ var autoSlide = setInterval(function(){
     console.log(pagerNum);
   }else{
     autoTimer = 0;
-    pagerNum = 0;
-    hero.style.backgroundImage = 'url("'+bgurl+''+1+''+bgex+'")';
-    for(y= 0; y < thumbNail.length; y++){
-      thumbNail[y].classList.remove('active');
-    }
-    thumbNail[0].classList.add('active');
+    bg_reset()
   }
 }, 8000);
 
