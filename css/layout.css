@@ -96,6 +96,57 @@ button{
   right: 30px;
   bottom: 50px;
 }
+.sliderbtn{
+  position : absolute;
+  top: -35px;
+  margin: 0 auto;
+  width: 0;
+  left : 0;
+  right : 0;
+  padding : 10px 60px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.sliderbtn.active::before{
+  content: '';
+  padding: 15px 65px;
+  border: 1px solid #ddd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 15px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: all .8s ease-in-out;
+}
+#slider_stop,
+#slider_play{
+  position : absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-style: italic;
+  transition: all .8s ease-in-out;
+  border-radius: 15px;
+}
+#slider_stop{ /**/background-color: rgba(0,0,0,0.8);}
+#slider_play{
+  display : none;
+  color: black;
+}
+#slider_stop.active{display : none;}
+#slider_play.active{
+  display : block;
+  box-shadow: inset 0 0 0 50px rgba(255,255,255,0.8);
+}
 #prev,
 #next{
   width: 20px;

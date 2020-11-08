@@ -49,17 +49,22 @@ prev.onclick = function(){
 }
 // 자동 슬라이드
 let autoTimer = 0;
-var autoSlide = setInterval(function(){
-  autoTimer++
-  if(0 < autoTimer&&pagerNum < thumbNail.length-1){
-    pagerNum = autoTimer;
-    bg_play()
-    console.log(pagerNum);
-  }else{
-    autoTimer = 0;
-    bg_reset()
-  }
-}, 8000);
+var autoSlide = '';
+
+function autoslidePlay(){
+  autoSlide = setInterval(function(){
+    autoTimer++
+    if(0 < autoTimer&&pagerNum < thumbNail.length-1){
+      pagerNum = autoTimer;
+      bg_play()
+      console.log(pagerNum);
+    }else{
+      autoTimer = 0;
+      bg_reset()
+    }
+  }, 8000);
+}
+autoslidePlay();
 
 // 갤러리 버튼
 for(var x = 0; x < thumbNail.length; x++){
@@ -74,4 +79,22 @@ for(var x = 0; x < thumbNail.length; x++){
   event.target.classList.add('active');
   hero.style.backgroundImage = 'url("'+pagerSrc+'")';
   });
+}
+
+// 자동 슬라이드 정지 및 재생
+var sliderStop = document.getElementById('slider_stop'),
+sliderPlay = document.getElementById('slider_play'),
+sliderBtn = document.querySelector('.sliderbtn');
+
+sliderStop.onclick = function(){
+  sliderStop.classList.add("active");
+  sliderPlay.classList.add("active");
+  sliderBtn.classList.add("active");
+  clearInterval(autoSlide);
+}
+sliderPlay.onclick = function(){
+  sliderStop.classList.remove("active");
+  sliderPlay.classList.remove("active");
+  sliderBtn.classList.remove("active");
+  autoslidePlay();
 }
