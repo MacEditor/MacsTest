@@ -3,14 +3,16 @@ $(document).ready(function(){
   var page_trigger = 1,
   nextPage = $("#page_2").offset().top;;
   $(window).scroll(function(){
-    if($(this).scrollTop() < 200&&page_trigger==1){
-      $("html:not(:animated),body:not(:animated)").animate({
-        scrollTop: nextPage + 'px'
-      }, {
-        duration: 800, complete: function(){
-          page_trigger = 0;
-        }
-      });
+    if($(window).width() > 1024){
+      if($(this).scrollTop() < 200&&page_trigger==1){
+        $("html:not(:animated),body:not(:animated)").animate({
+          scrollTop: nextPage + 'px'
+        }, {
+          duration: 800, complete: function(){
+            page_trigger = 0;
+          }
+        });
+      }
     }
   });
 

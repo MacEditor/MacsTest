@@ -3,9 +3,14 @@
 /* 600이하 시작 */
 @media all and (max-width: 600px){
 .menu_logo{
-  /**/background-color: green;
+  font-size : 7.5vw;
   width : 60%;
   max-width : 354px;
+}
+.menu_list_m{
+  width : 40%;
+  max-width : 124px;
+  margin-right: 0;
 }
 }
 /* 600이하 끝 */
