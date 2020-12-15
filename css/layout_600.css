@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/* 600이하 시작 */
+@media all and (max-width: 600px){
+.menu_logo{
+  /**/background-color: green;
+  width : 60%;
+  max-width : 354px;
+}
+}
+/* 600이하 끝 */
