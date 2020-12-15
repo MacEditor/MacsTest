@@ -2,6 +2,8 @@
 
 /* 600이하 시작 */
 @media all and (max-width: 600px){
+.menubar{height : 80px;} /* 메인메뉴 전체영역 */
+.menubar.active{height : 70px;}
 .menu_logo{
   font-size : 7.5vw;
   width : 60%;
@@ -9,8 +11,35 @@
 }
 .menu_list_m{
   width : 40%;
-  max-width : 124px;
-  margin-right: 0;
+  max-width : 80px;
+  margin-right: 16px;
 }
+.menu_list_m::after,
+.menu_list_m::before,
+.menu_more{
+  width : 40px;
+  height : 3px;
+}
+.menu_list_m::before{transform : translateY(-10px);}
+.menu_list_m::after{transform : translateY(10px);}
+/* 적용 */
+.menu_list_m.active::before{transform : translateY(3px) rotate(45deg);}
+.menu_list_m.active::after{transform : translateY(-3px) rotate(-45deg);}
+
+/* 메인슬라이드 시작 */
+.main_info1{font-size : 22px;}
+.main_info2{font-size : 60px;}
+.main_info3{font-size : 30px;}
+.main_info4{
+  width : 140px;
+  height : 45px;
+  font-size : 22px;
+}
+.main_info4:hover{transform: translateX(10px);}
+/* 메인슬라이드 끝 */
+
+/* 나에 대하여 시작 */
+
+/* 나에 대하여 끝 */
 }
 /* 600이하 끝 */

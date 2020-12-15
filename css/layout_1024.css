@@ -106,7 +106,10 @@
 	-ms-flex-align: center;
 	align-items: center;
 }
-.about_me1_img{max-width : 382px;}
+.about_me1_img{
+  width : 100%;
+  max-width : none;
+}
 .about_me2{
   height : 50%;
   padding-top : 0;
