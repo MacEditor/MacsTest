@@ -92,7 +92,7 @@
 }
 .about_me1{
   width : 100%;
-  max-width : none;
+  max-width : auto;
   height : 50%;
   padding-top : 0;
 
@@ -109,6 +109,10 @@
 .about_me1_img{
   width : 100%;
   max-width : none;
+}
+.about_me1_img img{
+  max-width : 382px;
+  min-width : auto;
 }
 .about_me2{
   height : 50%;
@@ -147,17 +151,29 @@
   opacity: 1;
   transform: none;
   box-sizing: border-box;
-  padding: 30px 49px 30px 30px;
+  padding: 30px 49px 30px 66px;
 }
 .skills_infobox2:hover{transform: none;}
 .skills_infobox2 > div{display: block;}
 .skills_icon{
+  width : 210px;
+  height : 210px;
   float : left;
-  margin-top: 0;
+  margin-top: 22px;
+}
+.skills_icon img{max-width: 107px;}
+@media all and (min-width: 601px) and (max-width: 830px){
+  .skills_infobox{max-width : 650px;}
+  .skills_infobox2{padding: 30px 30px 30px 30px;}
+  .skills_icon{
+    margin-top: 52px;
+    width : 150px;
+    height : 150px;
+  }
 }
 .skills_info3{
   float : right;
-  margin-top: 54px;
+  margin-top: 48px;
   width : 60%;
   max-width : 340px;
   height : 40px;
@@ -166,7 +182,7 @@
 .skills_info3 > br{display: none;}
 .skills_info4{
   float : right;
-  margin-top: 23px;
+  margin: 23px auto 0 auto;
   text-align: left;
   max-height : 120px;
   width : 60%;
