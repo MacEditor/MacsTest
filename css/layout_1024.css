@@ -92,7 +92,7 @@
 }
 .about_me1{
   width : 100%;
-  max-width : auto;
+  max-width : none;
   height : 50%;
   padding-top : 0;
 
@@ -112,7 +112,7 @@
 }
 .about_me1_img img{
   max-width : 382px;
-  min-width : auto;
+  min-width : none;
 }
 .about_me2{
   height : 50%;
