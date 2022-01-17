@@ -1,3 +1,4 @@
+const musicInfo = document.getElementById('music-info');
 const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
@@ -30,6 +31,7 @@ function loadSong(song) {
 // Play song
 function playSong() {
   musicContainer.classList.add('play');
+  musicInfo.classList.add('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');
   playBtn.querySelector('i.fas').classList.add('fa-pause');
 
@@ -39,6 +41,7 @@ function playSong() {
 // Pause song
 function pauseSong() {
   musicContainer.classList.remove('play');
+  musicInfo.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
 
